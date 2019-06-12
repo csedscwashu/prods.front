@@ -1,0 +1,46 @@
+<!doctype html5>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="lib/bs4.css">
+    <style>
+      @media only screen {body {background: #44A08D;/* background: linear-gradient(to bottom, #093637, #44A08D); background-attachment: fixed;*/}}
+
+      @media (min-width: 576px) {
+      div.cleft {height: 85vh; overflow-y: auto; }
+      div.cright {height: 85vh; overflow-y: auto; }
+      }
+      
+      @media (max-width: 575.9px) {
+      div.cleft {height: 40vh; overflow-y: auto; font-size: 0.75em;}
+      div.cright {min-height: 30vh; font-size: 0.75em;}
+      div.alert h5 { font-size: 1em; }
+      h5.sname { font-size: 1em; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container-fluid py-2 bg-danger text-light d-print-none">
+	<div class="row"><div class="col-12">
+	    <h3 class="font-weight-normal my-0 py-0">Periodic Review <i>of</i> Doctoral&nbsp;Students</h3>
+	    <p class="my-0 py-0">WashU Computer Science &amp; Engineering</p>
+	  </div></div>
+      </div>
+      <div class="container mt-5" id="logindiv">
+	<div class="row mx-1 mx-sm-5">
+	  <div class="col-12 pt-5 pb-4 px-2 px-sm-5 bg-white text-center rounded">
+	    <input class="form-control" type="password" placeholder="Enter the root password here" id="pswd">
+	    <a class="btn btn-primary mt-3" href="javascript:void(0);" onclick="login();">Reset Admin Password</a>
+
+	    <pre class="mt-5 d-none alert alert-danger" id="info"></pre>
+	  </div>
+	</div>
+      </div>
+    </main>
+    <script src="lib/jq.js"></script><script src="js/server.js"></script>
+    <script src="js/sudo.js"></script>
+  </body>
+</html>

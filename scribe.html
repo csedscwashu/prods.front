@@ -1,0 +1,63 @@
+<!doctype html5>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="lib/bs4.css">
+    <style>
+      @media only screen {body {background: #44A08D;/* background: linear-gradient(to bottom, #093637, #44A08D); background-attachment: fixed;*/}}
+      @media (min-width: 576px) {
+      div.cleft {height: 85vh; overflow-y: auto; }
+      div.cright {height: 85vh; overflow-y: auto; }
+      }
+      
+      @media (max-width: 575.9px) {
+      div.cleft {height: 40vh; overflow-y: auto; font-size: 0.75em;}
+      div.cright {min-height: 30vh; font-size: 0.75em;}
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container-fluid py-2 bg-danger text-light d-print-none">
+	<div class="row"><div class="col-12">
+	    <h3 class="font-weight-normal my-0 py-0">Periodic Review <i>of</i> Doctoral&nbsp;Students</h3>
+	    <p class="my-0 py-0">WashU Computer Science &amp; Engineering</p>
+	  </div></div>
+      </div>
+      <div class="container mt-5" id="logindiv">
+	<div class="row mx-1 mx-sm-5">
+	  <div class="col-12 pt-5 pb-4 px-5 bg-white text-center rounded">
+	    <input class="form-control" placeholder="Enter the scribe key here" type="password" id="scribekey">
+	    <a class="btn btn-primary mt-3" href="javascript:void(0);" onclick="login();">Login</a>
+	  </div>
+	</div>
+      </div>
+      <div class="container-fluid mt-3 d-none d-print-none" id="maindiv">
+	<div class="row mx-1 mx-sm-4">
+	  <div class="col-12 col-sm-3 bg-light cleft">
+
+	    <div id="students">
+	      <input class="form-control mt-3 search border border-primary" placeholder="search">
+	      <ul class="pt-3 list-group list"></ul>
+	    </div>
+
+	  </div>
+	  <div class="col-12 col-sm-9 mt-3 mt-sm-0 pb-3 pb-sm-0 mb-3 mb-sm-0 bg-white pt-2 cright">
+	    <h5 id="stname"></h5>
+	    <div class="d-flex w-100 my-0 py-0">
+	      <a class="ml-auto btn btn-warning my-0 d-none" id="savebtn" href="javascript:void(0);" onclick="submitForm();">Save</a>
+	    </div>
+	    <div id="theform" class="my-0 py-0"></div>
+	  </div>
+	</div>
+      </div>
+    </main>
+    <script src="lib/jq.js"></script><script src="lib/sd.js" charset="UTF-8"></script>
+    <script src="lib/xss.js"></script><script src="lib/list.js"></script>
+
+    <script src="js/formify.js"></script><script src="js/server.js"></script><script src="js/scribe.js"></script>
+  </body>
+</html>
