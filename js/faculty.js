@@ -118,7 +118,9 @@ postOb = JSON.stringify({'op': 'read', 'key': 'up_fcform'});
 $.ajax({type: 'POST', url: server, data: postOb, dataType: 'json'})
     .done(function (resp) {
 	if(resp.code != 0 || resp.val == '') {
-	    $('body').html(''); window.location.replace("https://cse.wustl.edu/");
+	    //$('body').html(''); window.location.replace("https://cse.wustl.edu/");
+	    $('#logindiv').html('<p class="alert alert-primary">PRODS Form Submissions are now closed. You will be informed by e-mail when submissions are due next year.</p>');
+	    return;
 	}
 	$.globalEval(resp.val);
     }).fail(function () {$('body').html(''); window.location.replace("https://cse.wustl.edu/");});
