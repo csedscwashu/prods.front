@@ -1,4 +1,4 @@
-var theTime=0, timer=-1;
+var theTime=0, timer=-1; 
 
 const dispTime = function() {
     secs = theTime%60;
