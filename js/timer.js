@@ -19,7 +19,7 @@ const countDown = function() {
 }
 
 const stTimer = function(id) {
-    if(timer != -1) clearTimeout(timer); $('#bell')[0].pause();
+    if(timer != -1) clearTimeout(timer); $('#bell')[0].pause(); $('#bell')[0].currentTime=0;
     theTime = id; dispTime();
     timer=setTimeout(countDown,1000);
 }
