@@ -1,0 +1,71 @@
+<!doctype html5>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="lib/bs4.css">
+    <style>
+      @media only screen {body {background: #44A08D;/* background: linear-gradient(to bottom, #093637, #44A08D); background-attachment: fixed;*/}}
+
+      @media (min-width: 576px) {
+      div.cleft {height: 85vh; overflow-y: auto; }
+      div.cright {height: 85vh; overflow-y: auto; }
+      }
+      
+      @media (max-width: 575.9px) {
+      div.cleft {height: 40vh; overflow-y: auto; font-size: 0.75em;}
+      div.cright {min-height: 30vh; font-size: 0.75em;}
+      div.alert h5 { font-size: 1em; }
+      h5.sname { font-size: 1em; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div class="container-fluid py-1 bg-danger text-light d-print-none"><div class="container">
+	<div class="row"><div class="col-6 text-center my-auto">
+	  <p class="display-4 font-weight-bold my-0 py-0" id="time">00:00</p>
+	  <audio src="bell.mp3" id="bell" loop />
+	</div><div class="col-6 text-center my-auto">
+	  <a class="btn btn-sm btn-primary my-1" href="javascript:void(0);" onclick="stTimer(30);">30s</a>
+	  <a class="btn btn-sm btn-primary my-1" href="javascript:void(0);" onclick="stTimer(60);">1m</a>
+	  <a class="btn btn-sm btn-primary my-1" href="javascript:void(0);" onclick="stTimer(120);">2m</a>
+	  <a class="btn btn-sm btn-primary my-1" href="javascript:void(0);" onclick="stTimer(180);">3m</a>
+	  <a class="btn btn-sm btn-primary my-1" href="javascript:void(0);" onclick="stTimer(240);">4m</a>
+	  <a class="btn btn-sm btn-primary my-1" href="javascript:void(0);" onclick="stTimer(300);">5m</a>
+	  <a class="btn btn-sm btn-warning my-1" href="javascript:void(0);" onclick="stTimer(0);">Stop</a>
+	</div></div>
+      </div></div>
+      <div class="d-none d-print-block" id="printpage">
+      </div>
+      <div class="container mt-5" id="logindiv">
+	<div class="row mx-1 mx-sm-5">
+	  <div class="col-12 pt-5 pb-4 px-2 px-sm-5 bg-white text-center rounded">
+	    <input class="form-control" placeholder="Enter the faculty key here" type="password" id="fackey">
+	    <a class="btn btn-primary mt-3" href="javascript:void(0);" onclick="login();">Login</a>
+	  </div>
+	</div>
+      </div>
+      <div class="container-fluid mt-3 d-none d-print-none" id="maindiv">
+	<div class="row mx-1 mx-sm-4">
+	  <div class="col-12 col-sm-3 bg-light cleft">
+
+	    <div id="students">
+	      <input class="form-control mt-3 search border border-primary" placeholder="search">
+	      <ul class="pt-3 list-group list"></ul>
+	    </div>
+
+	  </div>
+	  <div class="col-12 mt-3 mt-sm-0 col-sm-9  pb-3 pb-sm-0 mb-3 mb-sm-0 bg-white cright" id="thereview"></div>
+	</div>
+      </div>
+    </main>
+    <script src="lib/jq.js"></script><script src="lib/sd.js" charset="UTF-8"></script>
+    <script src="lib/xss.js"></script><script src="lib/list.js"></script>
+
+    <script src="js/formify.js"></script><script src="js/server.js"></script>
+    <script src="js/review.js"></script>
+    <script src="js/timer.js"></script>
+  </body>
+</html>
