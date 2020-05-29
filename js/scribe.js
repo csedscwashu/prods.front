@@ -9,9 +9,12 @@ var shkey, empty = 0;
 const submitForm = function() {
     fdata = form2obj(schema);
     postOb = JSON.stringify({'op': 'write.exists', 'uid': 'scribe', 'pswd': pswd, 'key': ('prod_'+shkey), 'val': JSON.stringify(fdata)});
-    $.ajax({type: 'POST', url: server, data: postOb, dataType: 'json'})
+    $.ajax({type: 'POST', url: server, data: postOb, dataType: 'json'}).done(function (resp) { $('#svdmsg').addClass('d-none'); });
 }
 
+const unsaved = function () {
+    $('#svdmsg').removeClass('d-none');
+}
 
 const review = function(wkey) {
     shkey = wkey;
@@ -19,15 +22,26 @@ const review = function(wkey) {
 	$('#stname').html('Student: ' + '&nbsp; <span class="bg-info my-2 my-sm-0 text-white rounded px-2 text-nowrap">Advisor: </span>');
 	empty = formify('#theform',schema);
 	$('#savebtn').removeClass('d-none');
+	$('#theform input').change(unsaved); $('#theform textarea').change(unsaved);
+	$('#theform input').on('input',unsaved); $('#theform textarea').on('input',unsaved);
     }
+    $('#svdmsg').addClass('d-none');
     
-    postOb = JSON.stringify({'op': 'read', 'uid': 'scribe', 'pswd': pswd, 'key': ('prod_'+shkey)});
+    postOb = JSON.stringify({'op': 'read', 'uid': 'scribe', 'pswd': pswd, 'key': [('prod_'+shkey), ('sar_'+shkey), ('fev_'+shkey)]});
     $.ajax({type: 'POST', url: server, data: postOb, dataType: 'json'})
 	.done(function (resp) {
 	    obj2form(schema,empty);
-	    if(resp.val.length > 0)
-		obj2form(schema,JSON.parse(resp.val));
+	    if(resp.val[0].length > 0)
+		obj2form(schema,JSON.parse(resp.val[0]));
 	    $('#stname').html('Student: ' + students[shkey].name + '&nbsp; <span class="bg-info my-2 my-sm-0 text-white rounded px-2 text-nowrap">Advisor: ' + advisors[students[shkey].advisor].name+'</span>');
+
+	    html = '';
+	    if(resp.val[2].length > 0)
+		html = html + preview(JSON.parse(resp.val[2]),[],'alert-primary');
+	    if(resp.val[1].length > 0)
+		html = html + preview(JSON.parse(resp.val[1]),[],'alert-success');
+	    $('#rvinfo').html(html);
+	    
 	});
 }
 
